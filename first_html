@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Traffic Accidents in Great Britain web application</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.30/"></script>
+
+    <script>
+      require(["esri/config", "esri/views/MapView", "esri/WebMap"], (esriConfig, MapView, WebMap) => {
+        esriConfig.apiKey = "MY APP KEY"
+        const webmap = new WebMap({
+          portalItem: {
+            id: "c1984f0caafa4895bbe2317deb58ebad"
+          }
+        });
+        const view = new MapView({
+          map: webmap,
+          container: "viewDiv",
+          center: [-0.131340, 51.513590],
+          zoom: 6, 
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
